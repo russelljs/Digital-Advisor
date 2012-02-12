@@ -1,3 +1,24 @@
+-- table for holding all registered user info
+
+CREATE TABLE users
+(
+	major			char(30),
+	secondmajor		char(30),
+	minor			char(30),
+	username		char(30),
+	password		char(30),
+	confirmcode		char(30),
+	applicationarea		char(30),
+	fineartsreq		tinyint(1),
+	labreq			tinyint(1),
+	upperdivreq		tinyint(1),
+	lowerdivreq		tinyint(1),
+	socscireq		tinyint(1),
+	appreq			tinyint(1),
+	historyreq		tinyint(1),
+	libartsreq		tinyint(1)
+);
+
 -- table containing the core computer science courses
 
 CREATE TABLE coreCS
@@ -82,6 +103,454 @@ CREATE TABLE CSUpperDiv
 
 
 -- application area tables
+
+-- Bioinformatics
+-- Required table
+
+CREATE TABLE bioReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- Choose one class from this table
+CREATE TABLE bioOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- Choose two from this table
+CREATE TABLE bioTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Game design and programming
+-- required table
+CREATE TABLE gameReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose one from this table
+CREATE TABLE gameOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE gameTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Forensics
+-- required table
+CREATE TABLE forensicsReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE forensicsOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Geographic Information Systems
+-- required course
+CREATE TABLE gisReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose two from this table
+CREATE TABLE gisOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE gisTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Linguistics
+-- required table (choose one)
+CREATE TABLE lingReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose two from this table
+CREATE TABLE lingOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE lingTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Scientific Computing
+-- required table
+CREATE TABLE scienceReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose two from this table
+CREATE TABLE scienceOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE scienceTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- Risk and insurance
+-- required table
+CREATE TABLE riskReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose two from this table
+CREATE TABLE riskOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+
+-- New media
+-- required course
+CREATE TABLE mediaReq
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- Choose two from this table
+CREATE TABLE mediaOne
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- choose three from this table
+CREATE TABLE mediaTwo
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+-- Lab science requirement will be fulfilled by all classes in physics or chemistry table as well as 
+-- one course from addlabsci table.  classes CANNOT be duplicated
+-- table containing courses for the physics option for lab science requirement
+CREATE TABLE physics
+(
+	department	char(4),
+	number		char(4)
+);
+
+-- table containing courses for the chemistry option for lab science requirement
+CREATE TABLE chemistry
+(
+	department	char(4),
+	number		char(4)
+);
+
+--table containing courses for the additional lab science requirement
+CREATE TABLE addlabsci
+(
+	department	char(4),
+	number		char(4)
+);
+
+
+-- populate the physics table
+INSERT INTO physics
+	VALUES("PHYS","211");
+INSERT INTO physics
+	VALUES("PHYS","211L");
+INSERT INTO physics
+	VALUES("PHYS","212");
+INSERT INTO physics
+	VALUES("PHYS","212L");
+
+-- populate the chemistry table
+INSERT INTO chemistry
+	VALUES("CHEM","111");
+INSERT INTO chemistry
+	VALUES("CHEM","112");
+
+-- populate the additional lab science table
+INSERT INTO addlabsci
+	VALUES("CHEM","111");
+INSERT INTO addlabsci
+	VALUES("BIOL","101");
+INSERT INTO addlabsci
+	VALUES("BIOL","101L");
+INSERT INTO addlabsci
+	VALUES("PHYS","211");
+INSERT INTO addlabsci
+	VALUES("PHYS","211L");
+INSERT INTO addlabsci
+	VALUES("GEOL","201");
+INSERT INTO addlabsci
+	VALUES("GEOL","202");
+INSERT INTO addlabsci
+	VALUES("MSCI","101");
+INSERT INTO addlabsci
+	VALUES("MSCI","102");
+
+-- populate application tables
+
+-- populate bioinformatics application table
+INSERT INTO bioReq
+	VALUES ("CSCE","555");
+INSERT INTO bioReq
+	VALUES ("BIOL","101");
+INSERT INTO bioReq
+	VALUES ("BIOL","102");
+INSERT INTO bioReq
+	VALUES ("BIOL","302");
+INSERT INTO bioReq
+	VALUES ("CHEM","111");
+INSERT INTO bioReq
+	VALUES ("CHEM","112");
+
+INSERT INTO bioOne
+	VALUES ("CSCE","565");
+INSERT INTO bioOne
+	VALUES ("CSCE","567");
+INSERT INTO bioOne
+	VALUES ("CSCE","569");
+INSERT INTO bioOne
+	VALUES ("CSCE","582");
+
+INSERT INTO bioTwo
+	VALUES ("BIOL","301");
+INSERT INTO bioTwo
+	VALUES ("BIOL","303");
+INSERT INTO bioTwo
+	VALUES ("CHEM","111");
+INSERT INTO bioTwo
+	VALUES ("CHEM","212");
+INSERT INTO bioTwo
+	VALUES ("CHEM","333");
+
+-- populate game design and programming application table
+INSERT INTO gameReq
+	VALUES ("CSCE","552");
+INSERT INTO gameReq
+	VALUES ("MART","110");
+
+INSERT INTO gameOne
+	VALUES ("CSCE","520");
+INSERT INTO gameOne
+	VALUES ("CSCE","565");
+INSERT INTO gameOne
+	VALUES ("CSCE","580");
+
+INSERT INTO gameTwo
+	VALUES ("MART","210");
+INSERT INTO gameTwo
+	VALUES ("MART","371");
+INSERT INTO gameTwo
+	VALUES ("MART","583");
+INSERT INTO gameTwo
+	VALUES ("MATH","527");
+INSERT INTO gameTwo
+	VALUES ("MATH","576");
+
+-- populate forensics application table
+INSERT INTO forensicsReq
+	VALUES ("CSCE","517");
+INSERT INTO forensicsReq
+	VALUES ("CSCE","522");
+
+INSERT INTO forensicsOne
+	VALUES ("CRJU","313");
+INSERT INTO forensicsOne
+	VALUES ("CRJU","314");
+INSERT INTO forensicsOne
+	VALUES ("CRJU","341");
+INSERT INTO forensicsOne
+	VALUES ("LAWS","525");
+INSERT INTO forensicsOne
+	VALUES ("LAWS","526");
+INSERT INTO forensicsOne
+	VALUES ("LAWS","547");
+INSERT INTO forensicsOne
+	VALUES ("JOUR","303");
+INSERT INTO forensicsOne
+	VALUES ("JOUR","504");
+
+-- populate geographic information systems application table
+INSERT INTO gisReq
+	VALUES ("CSCE","520");
+
+INSERT INTO gisOne
+	VALUES ("CSCE","564");
+INSERT INTO gisOne
+	VALUES ("CSCE","565");
+INSERT INTO gisOne
+	VALUES ("CSCE","567");
+
+INSERT INTO gisOne
+	VALUES ("GEOG","341");
+INSERT INTO gisOne
+	VALUES ("GEOG","345");
+INSERT INTO gisOne
+	VALUES ("GEOG","363");
+INSERT INTO gisOne
+	VALUES ("GEOG","541");
+INSERT INTO gisOne
+	VALUES ("GEOG","551");
+INSERT INTO gisOne
+	VALUES ("GEOG","562");
+INSERT INTO gisOne
+	VALUES ("GEOG","563");
+INSERT INTO gisOne
+	VALUES ("GEOG","564");
+
+-- populate linguistics application table
+INSERT INTO lingReq
+	VALUES ("LING","300");
+INSERT INTO lingReq
+	VALUES ("LING","301");
+
+INSERT INTO lingOne
+	VALUES ("CSCE","520");
+INSERT INTO lingOne
+	VALUES ("CSCE","531");
+INSERT INTO lingOne
+	VALUES ("CSCE","587");
+INSERT INTO lingOne
+	VALUES ("CSCE","580");
+
+INSERT INTO lingTwo
+	VALUES ("LING","340");
+INSERT INTO lingTwo
+	VALUES ("LING","421");
+INSERT INTO lingTwo
+	VALUES ("LING","440");
+INSERT INTO lingTwo
+	VALUES ("LING","565");
+INSERT INTO lingTwo
+	VALUES ("LING","567");
+
+-- populate scientific computing application table
+INSERT INTO scienceReq
+	VALUES ("MATH","141");
+INSERT INTO scienceReq
+	VALUES ("MATH","142");
+
+INSERT INTO scienceOne
+	VALUES ("CSCE","564");
+INSERT INTO scienceOne
+	VALUES ("CSCE","565");
+INSERT INTO scienceOne
+	VALUES ("CSCE","567");
+INSERT INTO scienceOne
+	VALUES ("CSCE","569");
+
+INSERT INTO scienceTwo
+	VALUES ("MATH","242");
+INSERT INTO scienceTwo
+	VALUES ("MATH","520");
+INSERT INTO scienceTwo
+	VALUES ("MATH","521");
+INSERT INTO scienceTwo
+	VALUES ("MATH","522");
+INSERT INTO scienceTwo
+	VALUES ("MATH","527");
+INSERT INTO scienceTwo
+	VALUES ("CSCE","561");
+
+-- populate risk and insurance application table
+INSERT INTO riskReq
+	VALUES ("CSCE","520");
+INSERT INTO riskReq
+	VALUES ("CSCE","522");
+INSERT INTO riskReq
+	VALUES ("ACCT","224");
+INSERT INTO riskReq
+	VALUES ("ECON","224");
+INSERT INTO riskReq
+	VALUES ("FINA","363");
+
+INSERT INTO riskOne
+	VALUES ("FINA","341");
+INSERT INTO riskOne
+	VALUES ("FINA","442");
+INSERT INTO riskOne
+	VALUES ("FINA","443");
+INSERT INTO riskOne
+	VALUES ("FINA","444");
+INSERT INTO riskOne
+	VALUES ("FINA","445");
+
+-- populate new media application table
+INSERT INTO mediaReq
+	VALUES ("MART","110");
+
+INSERT INTO mediaOne
+	VALUES ("CSCE","520");
+INSERT INTO mediaOne
+	VALUES ("CSCE","552");
+INSERT INTO mediaOne
+	VALUES ("CSCE","564");
+INSERT INTO mediaOne
+	VALUES ("CSCE","567");
+
+INSERT INTO mediaTwo
+	VALUES ("MART","210");
+INSERT INTO mediaTwo
+	VALUES ("MART","371");
+INSERT INTO mediaTwo
+	VALUES ("MART","380");
+INSERT INTO mediaTwo
+	VALUES ("MART","583");
 
 
 -- populate table for core Computer Science courses
