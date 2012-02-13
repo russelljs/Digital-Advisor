@@ -55,7 +55,7 @@ CREATE TABLE CSFineArts
 );
 
 
---table containing the choices for the social sciences requirement
+-- table containing the choices for the social sciences requirement
 
 CREATE TABLE CSSocialSciences
 (
@@ -298,7 +298,7 @@ CREATE TABLE chemistry
 	number		char(4)
 );
 
---table containing courses for the additional lab science requirement
+-- table containing courses for the additional lab science requirement
 CREATE TABLE addlabsci
 (
 	department	char(4),
