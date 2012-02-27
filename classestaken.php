@@ -42,22 +42,27 @@
 
 <h1>Welcome to Digital Advisor!</h1>
 <p>
-Digital Advisor is an easy to use method of performing a Senior Check. It saves you the time of comparing your transcript against a possibly confusing curriculum sheet. 
-Enjoy!
+
 </p>
 
 <!--<CENTER><a href="resume.doc" target="_blank">Download My Resume!!</a></CENTER>-->
 
 <Center>
-<FORM METHOD="LINK" ACTION="choosemajor.php">
-<INPUT TYPE="submit" VALUE="Proceed as Guest">
-</FORM>
-<FORM METHOD="LINK" ACTION="page1.htm">
-<INPUT TYPE="submit" VALUE="Register">
-</FORM>
-<FORM METHOD="LINK" ACTION="page1.htm">
-<INPUT TYPE="submit" VALUE="Sign In">
-</FORM>
+<?php
+  $aClass = $_POST['taken'];
+  function listClasses($aClass){
+    if(empty($aClass)){
+      echo("nothing");
+    }
+    else{
+      for ($i=0; $i<count($aClass); $i++){
+        echo($aClass[$i] . "<br>");
+      }
+    }
+  }
+?>
+
+You have taken:<br> <?php listClasses($_POST["taken"]); ?>
 </Center>
 <p>
 
@@ -77,4 +82,4 @@ Enjoy!
 	</body>
 
 </html>
-	
+

@@ -1,0 +1,123 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<meta name="author" content="" />
+
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+<title>Digital Advisor</title>
+
+</head>
+
+	<body>
+
+		<div id="wrapper">
+
+<div id="header">
+
+	<pic>
+	<CENTER><img src="herpderp.jpg" alt="header" class="center"/></CENTER>
+	</pic>
+
+</div> <!-- end #header -->
+
+<div id="nav">
+
+	<a href="index.html">Home</a>
+	<a href="account.html">Account</a>
+	<a href="Filler.html">Filler</a>
+    <a href="somethingsomething.html">Something</a>
+</div> <!-- end #nav -->
+
+<div id="content">
+
+<h1>Welcome to Digital Advisor!</h1>
+<p>
+Choose the classes you have taken:
+</p>
+
+<!--<CENTER><a href="resume.doc" target="_blank">Download My Resume!!</a></CENTER>-->
+
+<Center>
+<form method="post" action="classestaken.php">
+  <?php
+function dynamic_checkbox_table ($sql_str, $col_label, $col_name, $val_checked="S", $cant_cols_tbl=3){
+/*
+	by Daniel Neumann
+	this script creates dynamically permite a table containing checkboxes 
+	getting the data for the checkboxes from a MySQL DB
+	$sql_str, SQL select string to retrieve data from DB (see example in last comment line)
+	$col_label, DB column that has values for the checkbox label 
+	$col_name, DB column that has values for the checkbox name
+	$val_checked="S", value when checked (value="" attribute) it uses the same value for all of them. If you whish to use a dynamic value from a DB, you should comment the line (it´s explained next to the code in the middle of the function) and de-comment the other line (check the code,. you'll understand what I mean). Also, you should use this parameter to specify the column name for the values
+	$cant_cols_tbl=3, quantity of columns for the table, it defaults to 3
+	usage example: dynamic_checkbox_table("SELECT * FROM keywords", "Keyword", "ID_Keywrd");
+*/
+	
+	//connect DB and run query
+	$db="a6548267_datdata";
+	$db_user="a6548267_serious";
+	$pass="csce492";
+	$host="mysql6.000webhost.com";
+	@mysql_connect($host,$db_user,$pass);
+	@mysql_select_db($db) or die ("cannot connect to DB");
+	$q_resultado = mysql_query($sql_str);
+	mysql_close();
+	if (mysql_num_rows($q_resultado)==0) exit("no rows returned");
+	
+	$next_row = mysql_fetch_array($q_resultado); //fetch first row
+	
+	$output = "<table  border=\"1\">\n"; //open table tag
+	do {
+		$output .= "<tr>\n"; //open row tag
+		for ($i=1 ; $i <= $cant_cols_tbl ; $i++ ){ //loops as many times as $cant_cols_tbl
+			$row=$next_row; //assign $row, next row will be checking next one, that avoids starting a new row when it's gonna be empty
+			$output .= "<td>"; //open TD tag
+			$output .= (!$row) ? "" : '<input type="checkbox" name="'.$row[$col_name].'" value="'.$val_checked.'" />'.$row[$col_label]; //create checkbox and data from $row (**** you should comment this line if you whish to use dynamic $val_checked****)
+//			echo (!$row) ? "" : '<input type="checkbox" name="'.$row[$col_name].'" value="'.$row[$val_checked].'" />'.$row[$col_label]; //create checkbox and data from $row (**** you should de-comment this line if you whish to use dynamic $val_checked****)
+			$next_row = mysql_fetch_array($q_resultado); //retrieve next row
+			$output .= "</td>\n"; //close TD
+		} //close for loop
+		$output .= "</tr>\n"; //close row
+	} while ($next_row); //close do-while (and checks if there's another row)
+	$output .= "</table>\n"; //close table
+	return $output; 
+}
+
+dynamic_checkbox_table ("SELECT * FROM coreCS", $col_label, $col_name, $val_checked="S", $cant_cols_tbl=3)
+?>
+</Center>
+<p>
+
+</p>
+
+
+</div> <!-- end #content -->
+
+
+
+<div id="footer">
+	<p>Copyright &copy 2012 Serious Business</a></p>
+</div> <!-- end #footer -->
+
+		</div> <!-- End #wrapper -->
+
+	</body>
+
+</html>
+	

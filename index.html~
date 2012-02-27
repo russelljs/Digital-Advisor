@@ -49,7 +49,7 @@ Enjoy!
 <!--<CENTER><a href="resume.doc" target="_blank">Download My Resume!!</a></CENTER>-->
 
 <Center>
-<FORM METHOD="LINK" ACTION="choosemajor.php">
+<FORM METHOD="LINK" ACTION="notdefault.php">
 <INPUT TYPE="submit" VALUE="Proceed as Guest">
 </FORM>
 <FORM METHOD="LINK" ACTION="page1.htm">

@@ -42,22 +42,18 @@
 
 <h1>Welcome to Digital Advisor!</h1>
 <p>
-Digital Advisor is an easy to use method of performing a Senior Check. It saves you the time of comparing your transcript against a possibly confusing curriculum sheet. 
-Enjoy!
+<Center>
+Choose your major:
+</Center>
 </p>
 
 <!--<CENTER><a href="resume.doc" target="_blank">Download My Resume!!</a></CENTER>-->
 
 <Center>
-<FORM METHOD="LINK" ACTION="choosemajor.php">
-<INPUT TYPE="submit" VALUE="Proceed as Guest">
-</FORM>
-<FORM METHOD="LINK" ACTION="page1.htm">
-<INPUT TYPE="submit" VALUE="Register">
-</FORM>
-<FORM METHOD="LINK" ACTION="page1.htm">
-<INPUT TYPE="submit" VALUE="Sign In">
-</FORM>
+<form method="post" action="chooseclasses.php">
+<select name="major">
+  <option value="computer science">Computer Science</option>
+</select>
 </Center>
 <p>
 
@@ -76,5 +72,3 @@ Enjoy!
 
 	</body>
 
-</html>
-	
